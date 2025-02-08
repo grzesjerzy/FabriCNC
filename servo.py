@@ -39,8 +39,8 @@ class Servos:
             x1 += item[0]
             y1 += item[1]
 
-        print(x1)
-        print(y1)
+        print(f"x: {x1}")
+        print(f"y: {y1}")
 
     def nwd(self, a, b):
         while b != 0:
