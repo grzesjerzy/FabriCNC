@@ -44,11 +44,11 @@ def move(x_move, y_move):
     motion.clear()
 
     if abs(x_move) >= abs(y_move):
-        ratio = abs((y_move / x_move) * relative_resolution)
+        ratio = int(abs((y_move / x_move) * relative_resolution))
         distance = int(motor_resolution * (abs(x_move) / 360))
         ratio_setup = (1, 0)
     else:
-        ratio = abs((x_move / y_move) * relative_resolution)
+        ratio = int(abs((x_move / y_move) * relative_resolution))
         distance = int(motor_resolution * (abs(y_move) / 360))
         ratio_setup = (0, 1)
 
