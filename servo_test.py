@@ -47,17 +47,17 @@ def move(x_move, y_move):
         distance = motor_resolution * (abs(x_move) / 360)
         ratio_setup = (1, 0)
         if x_move < 0:
-            direction = 0
-        else:
             direction = 1
+        else:
+            direction = 0
     else:
         ratio = abs((x_move / y_move) * relative_resolution)
         distance = motor_resolution * (abs(y_move) / 360)
         ratio_setup = (0, 1)
         if y_move < 0:
-            direction = 0
-        else:
             direction = 1
+        else:
+            direction = 0
 
     for i in range(1, relative_resolution + 1):
         if i > ratio:
