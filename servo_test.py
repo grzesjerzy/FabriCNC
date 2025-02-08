@@ -14,7 +14,7 @@ def move_servo():
     cw = 1
     ccw = 0
     micro = 32
-    spr = 200
+    spr = 4*200
 
     GPIO.setup(dir_a, GPIO.OUT)
     GPIO.setup(step_a, GPIO.OUT)
@@ -57,4 +57,4 @@ def move(x_move, y_move):
     move_servo()
 
 
-move(2, 1)
+move(4, 1)
