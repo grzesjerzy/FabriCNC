@@ -69,7 +69,11 @@ def move(x_move, y_move):
 
 
 move(360, 360)
+sleep(2)
 move(-180, 0)
+sleep(20)
 move(-45, -45)
-move(0,90)
-move(180,180)
+sleep(2)
+move(0, 90)
+sleep(2)
+move(180, 180)
