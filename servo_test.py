@@ -70,15 +70,15 @@ def move(x_move, y_move):
 
     move_servo(dir_x, dir_y, distance)
 
-
+sleep_time = 1
 move(360, 360)
-sleep(3)
+sleep(sleep_time)
 move(-180, 0)
-sleep(3)
+sleep(sleep_time)
 move(-45, -45)
-sleep(3)
+sleep(sleep_time)
 move(0, 90)
-sleep(3)
-move(225, -225)
-sleep(3)
-move(0, 180)
+sleep(sleep_time)
+move(200, -225)
+sleep(sleep_time)
+move(25, 180)
