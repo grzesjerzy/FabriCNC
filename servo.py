@@ -24,14 +24,15 @@ class Servos:
 
     def move(self, x, y):
 
-        x = (x / 360) * self.micro_step * self.step_per_rotation
-        y = (y / 360) * self.micro_step * self.step_per_rotation
+        # x = (x / 360) * self.micro_step * self.step_per_rotation
+        # y = (y / 360) * self.micro_step * self.step_per_rotation
         self.create_pulsing_pattern(x, y)
-        for n in range(len(self.motion)):
-            GPIO.output(self.motors, self.motion[n])
-            sleep(self.delay)
-            GPIO.output(self.motors, GPIO.LOW)
-            sleep(self.delay)
+        for x in range(int((self.micro_step * self.step_per_rotation)/360)):
+            for n in range(len(self.motion)):
+                GPIO.output(self.motors, self.motion[n])
+                sleep(self.delay)
+                GPIO.output(self.motors, GPIO.LOW)
+                sleep(self.delay)
 
     def nwd(self, a, b):
         while b != 0:
