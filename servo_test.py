@@ -40,7 +40,7 @@ def move_servo():
 
 
 def move(x_move, y_move):
-    resolution = 10
+    resolution = 100
     if x_move >= y_move:
         ratio = y_move / x_move
     else:
