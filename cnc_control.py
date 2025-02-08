@@ -20,5 +20,5 @@ for n in range(10):
     sleep(1)
     servos.move(315, 82.8)
     sleep(1)
-
+    print("EOF **********************")
 GPIO.cleanup()
