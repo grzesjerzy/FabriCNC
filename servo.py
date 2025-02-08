@@ -21,12 +21,12 @@ class Servos:
         GPIO.setup(self.step_b, GPIO.OUT)
 
     def move(self, x, y):
+        GPIO.output(self.dir_a, 1) if x > 0 else GPIO.output(self.dir_a, 0) and x = -x
+        GPIO.output(self.dir_b, 1) if y > 0 else GPIO.output(self.dir_b, 0) and y = -y
+
         x = int(round(x / 360, 3) * self.micro_step * self.step_per_rotation)
         y = int(round(y / 360, 3) * self.micro_step * self.step_per_rotation)
         self.create_pulsing_pattern(x, y)
-
-        GPIO.output(self.dir_a, 1) if x > 0 else GPIO.output(self.dir_a, 0)
-        GPIO.output(self.dir_b, 1) if y > 0 else GPIO.output(self.dir_b, 0)
 
         for n in range(len(self.motion)):
             GPIO.output(self.motors, self.motion[n])
