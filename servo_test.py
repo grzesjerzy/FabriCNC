@@ -40,7 +40,7 @@ def move_servo(cw_a, cw_b, spr):
 
 def move(x_move, y_move):
     motor_resolution = 200
-    relative_resolution = 100
+    relative_resolution = 1000
     motion.clear()
 
     if abs(x_move) >= abs(y_move):
