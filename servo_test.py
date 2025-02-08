@@ -3,7 +3,7 @@ from time import sleep
 motion = []
 
 
-def move_servo():
+def move_servo(cw):
     GPIO.setmode(GPIO.BOARD)
     dir_a = 8
     step_a = 10
@@ -11,8 +11,6 @@ def move_servo():
     dir_b = 12
     step_b = 11
 
-    cw = 1
-    ccw = 0
     micro = 32
     spr = 8 * 200
 
@@ -39,7 +37,7 @@ def move_servo():
     GPIO.cleanup()
 
 
-def move(x_move, y_move):
+def move(x_move, y_move, direction):
     resolution = 100
     if x_move >= y_move:
         ratio = y_move / x_move
@@ -54,7 +52,8 @@ def move(x_move, y_move):
         else:
             motion.append((1, 0))
 
-    move_servo()
+    move_servo(direction)
 
 
-move(4, 1)
+move(1, 1, 1)
+move(2, 0, 0)
