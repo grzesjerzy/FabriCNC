@@ -23,7 +23,7 @@ def move_servo():
 
     GPIO.output((dir_a, dir_b), cw)
 
-    delay = max(0.0002, 0.00012)
+    delay = max(0.00015, 0)
     motors = (step_a, step_b)
 
     resolution = len(motion)
