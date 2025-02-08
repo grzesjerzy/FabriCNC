@@ -37,29 +37,36 @@ def move_servo(cw, spr):
     GPIO.cleanup()
 
 
-def move(x_move, y_move, direction):
+def move(x_move, y_move):
     motor_resolution = 200
-    linear_factor = 360 / 200
-
-    resolution = 10
+    relative_resolution = 10
     motion.clear()
+
     if x_move >= y_move:
-        ratio = y_move / x_move
-        distance = motor_resolution * (x_move / 360)
+        ratio = abs((y_move / x_move) * relative_resolution)
+        distance = motor_resolution * (abs(x_move) / 360)
+        ratio_setup = (1, 0)
+        if x_move < 0:
+            direction = 0
+        else:
+            direction = 1
     else:
-        ratio = x_move / y_move
-        distance = motor_resolution * (y_move / 360)
+        ratio = abs((x_move / y_move) * relative_resolution)
+        distance = motor_resolution * (abs(y_move) / 360)
+        ratio_setup = (0, 1)
+        if y_move < 0:
+            direction = 0
+        else:
+            direction = 1
 
-    ratio = ratio * resolution
-
-    for i in range(1, resolution + 1):
+    for i in range(1, relative_resolution + 1):
         if i > ratio:
-            motion.append((1, 0))
+            motion.append(ratio_setup)
         else:
             motion.append((1, 1))
 
     move_servo(direction, distance)
 
 
-move(360, 360, 1)
-move(180, 0, 0)
+move(360, 360)
+move(-180, 0)
