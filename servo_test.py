@@ -72,6 +72,8 @@ def move(x_move, y_move):
 
 
 sleep_time = 1
+
+"""
 move(360, 360)
 sleep(sleep_time)
 move(-180, 0)
@@ -85,3 +87,7 @@ sleep(sleep_time)
 move(25, 180)
 sleep(sleep_time)
 move(25, 0)
+"""
+move(25, 0)
+sleep(1)
+move(-25, 0)
