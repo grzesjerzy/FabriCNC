@@ -54,14 +54,3 @@ class Servos:
                 self.motion.append((1, 0))
             elif n % (int_nww / y) == 0:
                 self.motion.append((0, 1))
-
-        print(self.motion)
-
-        x1 = 0
-        y1 = 0
-        for item in self.motion:
-            x1 += item[0]
-            y1 += item[1]
-
-        print(x1)
-        print(y1)
