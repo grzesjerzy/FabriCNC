@@ -5,11 +5,11 @@ GPIO.setmode(GPIO.BOARD)
 DIR_A = 8
 STEP_A = 10
 
-#DIR_B = 12
-#STEP_B = 11
+DIR_B = 12
+STEP_B = 11
 
-DIR_B = 13
-STEP_B = 15
+#DIR_B = 13
+#STEP_B = 15
 #DIR_C = 13
 #STEP_C = 15
 
