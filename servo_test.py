@@ -21,13 +21,13 @@ GPIO.setup(STEP_A, GPIO.OUT)
 GPIO.setup(DIR_B, GPIO.OUT)
 GPIO.setup(STEP_B, GPIO.OUT)
 
-GPIO.output((DIR_A, DIR_B), CCW)
+GPIO.output((DIR_A, DIR_B), CW)
 
 delay = 0.004 / micro
 motors = (STEP_A, STEP_B)
 
 motion = [(1, 1), (1, 1), (1, 1), (1, 1), (1, 1),
-          (1, 0), (1, 0), (1, 0), (1, 0), (1, 0)]
+          (1, 1), (1, 1), (1, 1), (1, 1), (1, 1)]
 resolution = len(motion)
 step_count = int((SPR * micro)/resolution)
 
