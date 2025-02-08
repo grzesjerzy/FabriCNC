@@ -39,6 +39,7 @@ def move_servo(cw):
 
 def move(x_move, y_move, direction):
     resolution = 10
+    motion.clear()
     if x_move >= y_move:
         ratio = y_move / x_move
     else:
