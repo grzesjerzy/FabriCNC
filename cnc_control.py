@@ -7,6 +7,6 @@ servos.move(360, 360)
 sleep(2)
 servos.move(360, 180)
 sleep(2)
-servos.move(10,0)
+servos.move(180, 10)
 
 GPIO.cleanup()
