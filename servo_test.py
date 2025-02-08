@@ -12,7 +12,7 @@ def move_servo(cw):
     step_b = 11
 
     micro = 32
-    spr = 8 * 200
+    spr = 200
 
     GPIO.setup(dir_a, GPIO.OUT)
     GPIO.setup(step_a, GPIO.OUT)
@@ -38,7 +38,7 @@ def move_servo(cw):
 
 
 def move(x_move, y_move, direction):
-    resolution = 100
+    resolution = 10
     if x_move >= y_move:
         ratio = y_move / x_move
     else:
@@ -46,11 +46,11 @@ def move(x_move, y_move, direction):
 
     ratio = ratio * resolution
 
-    for i in range(0, resolution):
-        if i < ratio:
-            motion.append((1, 1))
-        else:
+    for i in range(1, resolution + 1):
+        if i > ratio:
             motion.append((1, 0))
+        else:
+            motion.append((1, 1))
 
     move_servo(direction)
 
