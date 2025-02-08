@@ -1,43 +1,60 @@
 import RPi.GPIO as GPIO
 from time import sleep
+motion = []
 
-GPIO.setmode(GPIO.BOARD)
-DIR_A = 8
-STEP_A = 10
 
-DIR_B = 12
-STEP_B = 11
+def move_servo():
+    GPIO.setmode(GPIO.BOARD)
+    dir_a = 8
+    step_a = 10
 
-#DIR_B = 13
-#STEP_B = 15
-#DIR_C = 13
-#STEP_C = 15
+    dir_b = 12
+    step_b = 11
 
-CW = 1
-CCW = 0
-micro = 32
-SPR = 200
+    cw = 1
+    ccw = 0
+    micro = 32
+    spr = 200
 
-GPIO.setup(DIR_A, GPIO.OUT)
-GPIO.setup(STEP_A, GPIO.OUT)
-GPIO.setup(DIR_B, GPIO.OUT)
-GPIO.setup(STEP_B, GPIO.OUT)
+    GPIO.setup(dir_a, GPIO.OUT)
+    GPIO.setup(step_a, GPIO.OUT)
+    GPIO.setup(dir_b, GPIO.OUT)
+    GPIO.setup(step_b, GPIO.OUT)
 
-GPIO.output((DIR_A, DIR_B), CW)
+    GPIO.output((dir_a, dir_b), cw)
 
-delay = 0.004 / micro
-motors = (STEP_A, STEP_B)
+    delay = 0.004 / micro
+    motors = (step_a, step_b)
 
-motion = [(1, 1), (1, 1), (1, 1), (1, 1), (1, 1),
-          (1, 1), (1, 1), (1, 1), (1, 1), (1, 1)]
-resolution = len(motion)
-step_count = int((SPR * micro)/resolution)
+    resolution = len(motion)
+    step_count = int((spr * micro)/resolution)
 
-for x in range(step_count):
-    for n in range(resolution):
-        GPIO.output(motors, motion[n])
-        sleep(delay)
-        GPIO.output(motors, GPIO.LOW)
-        sleep(delay)
+    for x in range(step_count):
+        for n in range(resolution):
+            GPIO.output(motors, motion[n])
+            sleep(delay)
+            GPIO.output(motors, GPIO.LOW)
+            sleep(delay)
 
-GPIO.cleanup()
+    GPIO.cleanup()
+
+
+def move(x_move, y_move):
+    resolution = 10
+    if x_move >= y_move:
+        ratio = y_move / x_move
+    else:
+        ratio = x_move / y_move
+
+    ratio = ratio * resolution
+
+    for i in range(0, resolution):
+        if i < ratio:
+            motion.append((1, 1))
+        else:
+            motion.append((1, 0))
+
+    move_servo()
+
+
+move(2, 1)
