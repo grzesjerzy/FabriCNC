@@ -2,13 +2,15 @@ import RPi.GPIO as GPIO
 from time import sleep
 
 GPIO.setmode(GPIO.BOARD)
-DIR_A = 8
-STEP_A = 10
-DIR_B = 5
-STEP_B = 3
+DIR_A = 18
+STEP_A = 16
+
+DIR_B = 12
+STEP_B = 14
+
 CW = 1
 CCW = 0
-micro = 32
+micro = 16
 SPR = 200
 
 GPIO.setup(DIR_A, GPIO.OUT)
