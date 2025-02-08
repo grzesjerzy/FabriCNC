@@ -22,7 +22,7 @@ def move_servo(cw_a, cw_b, spr):
     GPIO.output(dir_a, cw_a)
     GPIO.output(dir_b, cw_b)
 
-    delay = max(0.0001, 0)
+    delay = max(0.00005, 0)
     motors = (step_a, step_b)
 
     resolution = len(motion)
@@ -59,14 +59,14 @@ def move(x_move, y_move):
             motion.append((1, 1))
 
     if x_move < 0:
-        dir_x = 0
-    else:
         dir_x = 1
+    else:
+        dir_x = 0
 
     if y_move < 0:
-        dir_y = 0
-    else:
         dir_y = 1
+    else:
+        dir_y = 0
 
     move_servo(dir_x, dir_y, distance)
 
