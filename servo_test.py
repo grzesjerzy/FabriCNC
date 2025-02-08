@@ -70,3 +70,6 @@ def move(x_move, y_move):
 
 move(360, 360)
 move(-180, 0)
+move(-45, -45)
+move(0,90)
+move(180,180)
