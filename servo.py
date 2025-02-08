@@ -33,6 +33,15 @@ class Servos:
             GPIO.output(self.motors, GPIO.LOW)
             sleep(self.delay)
 
+        x1 = 0
+        y1 = 0
+        for item in self.motion:
+            x1 += item[0]
+            y1 += item[1]
+
+        print(x1)
+        print(y1)
+
     def nwd(self, a, b):
         while b != 0:
             pom = b
