@@ -14,7 +14,7 @@ def move_servo():
     cw = 1
     ccw = 0
     micro = 32
-    spr = 4*200
+    spr = 200
 
     GPIO.setup(dir_a, GPIO.OUT)
     GPIO.setup(step_a, GPIO.OUT)
@@ -23,7 +23,7 @@ def move_servo():
 
     GPIO.output((dir_a, dir_b), cw)
 
-    delay = 0.004 / micro
+    delay = max(0.0002, 0.00012)
     motors = (step_a, step_b)
 
     resolution = len(motion)
