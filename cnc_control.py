@@ -4,9 +4,9 @@ from time import sleep
 
 servos = Servos()
 for n in range(10):
-    servos.move(360, 360)
+    servos.move(-360, -360)
     # sleep(1)
-    servos.move(360, 180)
+    servos.move(-360, 180)
     # sleep(1)
     servos.move(180, 45)
     # sleep(1)
