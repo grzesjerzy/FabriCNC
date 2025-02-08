@@ -45,11 +45,11 @@ def move(x_move, y_move):
 
     if abs(x_move) >= abs(y_move):
         ratio = abs((y_move / x_move) * relative_resolution)
-        distance = motor_resolution * (abs(x_move) / 360)
+        distance = int(motor_resolution * (abs(x_move) / 360))
         ratio_setup = (1, 0)
     else:
         ratio = abs((x_move / y_move) * relative_resolution)
-        distance = motor_resolution * (abs(y_move) / 360)
+        distance = int(motor_resolution * (abs(y_move) / 360))
         ratio_setup = (0, 1)
 
     for i in range(1, relative_resolution + 1):
@@ -69,6 +69,7 @@ def move(x_move, y_move):
         dir_y = 0
 
     move_servo(dir_x, dir_y, distance)
+
 
 sleep_time = 1
 move(360, 360)
