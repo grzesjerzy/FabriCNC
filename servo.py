@@ -21,8 +21,8 @@ class Servos:
         GPIO.setup(self.step_b, GPIO.OUT)
 
     def move(self, x, y):
-        GPIO.output(self.dir_a, 1) if x > 0 else GPIO.output(self.dir_a, 0)
-        GPIO.output(self.dir_b, 1) if y > 0 else GPIO.output(self.dir_b, 0)
+        GPIO.output(self.dir_a, 0) if x > 0 else GPIO.output(self.dir_a, 1)
+        GPIO.output(self.dir_b, 0) if y > 0 else GPIO.output(self.dir_b, 1)
 
         x = abs(x)
         y = abs(y)
