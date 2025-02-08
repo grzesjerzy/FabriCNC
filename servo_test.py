@@ -15,7 +15,7 @@ STEP_B = 11
 
 CW = 1
 CCW = 0
-micro = 16
+micro = 32
 SPR = 200
 
 GPIO.setup(DIR_A, GPIO.OUT)
