@@ -40,7 +40,7 @@ def move_servo(cw_a, cw_b, spr):
 
 def move(x_move, y_move):
     motor_resolution = 200
-    relative_resolution = 10
+    relative_resolution = 100
     motion.clear()
 
     if abs(x_move) >= abs(y_move):
@@ -73,7 +73,6 @@ def move(x_move, y_move):
 
 sleep_time = 1
 
-"""
 move(360, 360)
 sleep(sleep_time)
 move(-180, 0)
@@ -85,9 +84,5 @@ sleep(sleep_time)
 move(200, -225)
 sleep(sleep_time)
 move(25, 180)
-sleep(sleep_time)
-move(25, 0)
-"""
-move(25, 0)
-sleep(1)
-move(-25, 0)
+
+
