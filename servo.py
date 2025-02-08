@@ -23,8 +23,8 @@ class Servos:
         GPIO.output(self.dir_b, 1)
 
     def move(self, x, y):
-        x = round(x / 360, 2) * self.micro_step * self.step_per_rotation
-        y = round(y / 360, 2) * self.micro_step * self.step_per_rotation
+        x = round(x / 360, 3) * self.micro_step * self.step_per_rotation
+        y = round(y / 360, 3) * self.micro_step * self.step_per_rotation
         self.create_pulsing_pattern(x, y)
 
         for n in range(len(self.motion)):
